@@ -1,12 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---------- Apply embedded image data ---------- */
-  const IMG = window.LAIS_IMG || {};
-  document.querySelectorAll('img[data-img]').forEach(img => {
-    const key = img.getAttribute('data-img');
-    if (IMG[key]) img.src = IMG[key];
-  });
-
   /* ---------- Header scroll state ---------- */
   const header = document.querySelector('.site-header');
   const onScroll = () => {
@@ -80,20 +73,50 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.6 });
   counters.forEach(el => countObs.observe(el));
 
-  /* ---------- Gallery filter ---------- */
+  /* ---------- Gallery filter + show more (mobile) ---------- */
   const filterBtns = document.querySelectorAll('.filter-btn');
   const gItems = document.querySelectorAll('.g-item');
+  const moreBtn = document.getElementById('gallery-more');
+  const moreWrap = document.querySelector('.g-more-wrap');
+  const MOBILE_LIMIT = 6;
+  const isMobileGallery = () => window.matchMedia('(max-width:600px)').matches;
+  let galleryExpanded = false;
+
+  const applyGalleryVisibility = () => {
+    const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+    let shown = 0;
+    gItems.forEach(item => {
+      const matches = activeFilter === 'all' || item.dataset.tag === activeFilter;
+      let show = matches;
+      if (show && isMobileGallery() && !galleryExpanded) {
+        shown++;
+        if (shown > MOBILE_LIMIT) show = false;
+      }
+      item.classList.toggle('hide', !show);
+    });
+    const totalMatching = Array.from(gItems).filter(item =>
+      activeFilter === 'all' || item.dataset.tag === activeFilter).length;
+    moreWrap.classList.toggle('show', isMobileGallery() && !galleryExpanded && totalMatching > MOBILE_LIMIT);
+  };
+
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const f = btn.dataset.filter;
-      gItems.forEach(item => {
-        const match = f === 'all' || item.dataset.tag === f;
-        item.classList.toggle('hide', !match);
-      });
+      galleryExpanded = false;
+      applyGalleryVisibility();
     });
   });
+
+  if (moreBtn) {
+    moreBtn.addEventListener('click', () => {
+      galleryExpanded = true;
+      applyGalleryVisibility();
+    });
+  }
+
+  window.addEventListener('resize', applyGalleryVisibility);
+  applyGalleryVisibility();
 
   /* ---------- Lightbox ---------- */
   const lightbox = document.querySelector('.lightbox');
