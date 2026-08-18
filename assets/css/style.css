@@ -569,4 +569,7 @@ h1,h2,h3,h4{font-family:var(--display);color:var(--navy-dark);font-weight:700;le
   .service-card .ic svg{width:18px;height:18px}
   .service-card h3{font-size:14.5px}
   .service-card p{font-size:12px}
+
+  .tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .tool-chip{padding:10px 6px;font-size:12px;text-align:center}
 }
