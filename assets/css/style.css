@@ -279,7 +279,7 @@ h1,h2,h3,h4{font-family:var(--display);color:var(--navy-dark);font-weight:700;le
    Services
    ========================================================= */
 .services{padding:70px 0}
-.services-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .service-card{
   background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
   padding:26px 20px;display:flex;flex-direction:column;gap:14px;min-height:230px;
@@ -505,7 +505,6 @@ h1,h2,h3,h4{font-family:var(--display);color:var(--navy-dark);font-weight:700;le
    Responsive
    ========================================================= */
 @media (max-width:1080px){
-  .services-grid{grid-template-columns:repeat(3,1fr)}
   .hero-badges{grid-template-columns:1fr 1fr}
 }
 @media (max-width:920px){
