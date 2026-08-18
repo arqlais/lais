@@ -496,7 +496,7 @@ h1,h2,h3,h4{font-family:var(--display);color:var(--navy-dark);font-weight:700;le
   .nav-desktop{display:none}
   .nav-toggle{display:flex}
   .hero-grid{grid-template-columns:1fr;gap:36px}
-  .hero-photo{max-width:280px}
+  .hero-photo{max-width:280px;margin:0 auto}
   .audience-pane{grid-template-columns:1fr;gap:22px;padding:28px 24px}
   .ap-list{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:18px}
   .switch{width:100%;flex-wrap:wrap}
@@ -514,16 +514,26 @@ h1,h2,h3,h4{font-family:var(--display);color:var(--navy-dark);font-weight:700;le
 }
 @media (max-width:600px){
   .hero{padding-top:132px}
-  .services-grid{grid-template-columns:1fr}
   .hero-badges{grid-template-columns:1fr}
   .footer-top{flex-direction:column}
   .footer-cols{gap:36px}
   .g-grid{grid-template-columns:repeat(2,1fr)}
   .cta{padding:64px 0}
 
-  .switch{flex-direction:column;padding:6px;border-radius:16px;gap:6px}
-  .switch-btn{white-space:normal;text-align:center;line-height:1.3;border-radius:12px}
+  .switch{flex-direction:row;padding:5px;gap:4px}
+  .switch-btn{flex:1;white-space:normal;text-align:center;line-height:1.25;font-size:12.5px;padding:10px 8px}
 
   .ap-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
   .ap-list li{font-size:13px}
+
+  .how-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .how-arrow{display:none}
+  .how-card{padding:20px 16px}
+
+  .services-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .service-card{padding:18px 14px;min-height:0;gap:10px}
+  .service-card .ic{width:36px;height:36px}
+  .service-card .ic svg{width:18px;height:18px}
+  .service-card h3{font-size:14.5px}
+  .service-card p{font-size:12px}
 }

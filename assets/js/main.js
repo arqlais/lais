@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const gItems = document.querySelectorAll('.g-item');
   const moreBtn = document.getElementById('gallery-more');
   const moreWrap = document.querySelector('.g-more-wrap');
-  const MOBILE_LIMIT = 6;
+  const MOBILE_LIMIT = 8;
   const isMobileGallery = () => window.matchMedia('(max-width:600px)').matches;
   let galleryExpanded = false;
 
