@@ -371,8 +371,15 @@ h1,h2,h3,h4{font-family:var(--display);color:var(--navy-dark);font-weight:700;le
 }
 .cmp .lbl.lb-base{right:12px;background:var(--navy-dark)}
 .cmp .lbl.lb-over{left:12px;background:var(--terra)}
-.cmp-cap{font-size:12.5px;color:var(--muted);margin-top:12px;font-weight:600}
-.cmp-owner{display:block;font-family:"Poppins",sans-serif;font-style:italic;font-weight:400;color:var(--ink);font-size:13.5px;margin-top:3px;letter-spacing:.01em}
+.cmp-cap{margin-top:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cmp-cap .cmp-env{font-size:12px;color:var(--ink);font-weight:600}
+.cmp-credit{font-family:"Poppins",sans-serif;font-style:italic;font-weight:400;color:var(--muted);font-size:12px;letter-spacing:.01em}
+@media(max-width:900px){
+  .cmp-cap .cmp-env,.cmp-credit{font-size:10.5px}
+}
+@media(max-width:340px){
+  .cmp-cap .cmp-env,.cmp-credit{font-size:9.5px}
+}
 .cmp-hint{
   position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:5;
   font-size:10.5px;color:#fff;background:rgba(43,52,58,.6);padding:5px 12px;
