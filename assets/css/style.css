@@ -2,23 +2,43 @@
    Laís Vieira — Portfólio | Design tokens & base
    ========================================================= */
 @font-face{
-  font-family:'The Seasons';src:url('../fonts/TheSeasonsLt.otf') format('opentype');
-  font-weight:300;font-style:normal;font-display:swap;
+  font-family:'Poppins';src:url('../fonts/Poppins-Regular.woff2') format('woff2');
+  font-weight:400;font-style:normal;font-display:swap;
 }
 @font-face{
-  font-family:'The Seasons';src:url('../fonts/TheSeasonsLtIt.otf') format('opentype');
-  font-weight:300;font-style:italic;font-display:swap;
+  font-family:'Poppins';src:url('../fonts/Poppins-Medium.woff2') format('woff2');
+  font-weight:500;font-style:normal;font-display:swap;
 }
 @font-face{
-  font-family:'The Seasons';src:url('../fonts/TheSeasonsIt.otf') format('opentype');
-  font-weight:500;font-style:italic;font-display:swap;
+  font-family:'Poppins';src:url('../fonts/Poppins-SemiBold.woff2') format('woff2');
+  font-weight:600;font-style:normal;font-display:swap;
 }
 @font-face{
-  font-family:'The Seasons';src:url('../fonts/TheSeasonsBd.otf') format('opentype');
+  font-family:'Poppins';src:url('../fonts/Poppins-Bold.woff2') format('woff2');
   font-weight:700;font-style:normal;font-display:swap;
 }
 @font-face{
-  font-family:'The Seasons';src:url('../fonts/TheSeasonsBdIt.otf') format('opentype');
+  font-family:'Poppins';src:url('../fonts/Poppins-ExtraBold.woff2') format('woff2');
+  font-weight:800;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'The Seasons';src:url('../fonts/TheSeasonsLt.woff2') format('woff2');
+  font-weight:300;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'The Seasons';src:url('../fonts/TheSeasonsLtIt.woff2') format('woff2');
+  font-weight:300;font-style:italic;font-display:swap;
+}
+@font-face{
+  font-family:'The Seasons';src:url('../fonts/TheSeasonsIt.woff2') format('woff2');
+  font-weight:500;font-style:italic;font-display:swap;
+}
+@font-face{
+  font-family:'The Seasons';src:url('../fonts/TheSeasonsBd.woff2') format('woff2');
+  font-weight:700;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'The Seasons';src:url('../fonts/TheSeasonsBdIt.woff2') format('woff2');
   font-weight:700;font-style:italic;font-display:swap;
 }
 :root{
