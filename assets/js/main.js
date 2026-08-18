@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(tick);
       countObs.unobserve(el);
     });
-  }, { threshold: 0.6 });
+  }, { threshold: 0.2 });
   counters.forEach(el => countObs.observe(el));
 
   /* ---------- Gallery filter + show more (mobile) ---------- */
