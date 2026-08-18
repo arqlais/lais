@@ -218,11 +218,15 @@ h1,h2,h3,h4{font-family:var(--display);color:var(--navy-dark);font-weight:700;le
    Stats
    ========================================================= */
 .stats{padding:64px 0}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.stat{text-align:center;padding:22px 12px}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat{text-align:center;padding:22px 12px;position:relative}
+.stat:not(:first-child)::before{
+  content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:1px;height:56%;background:var(--line);
+}
 .stat .num{font-family:var(--serif);font-weight:700;font-size:clamp(32px,4vw,48px);color:var(--navy-dark)}
 .stat .num span{color:var(--terra-dark)}
-.stat .lbl{font-size:12.5px;color:var(--muted);margin-top:6px;font-weight:600;letter-spacing:.02em}
+.stat .lbl{font-size:12.5px;color:var(--muted);margin-top:6px;font-weight:600;letter-spacing:.02em;max-width:16ch;margin-inline:auto}
 
 /* =========================================================
    Audience (Para quem)
@@ -286,14 +290,27 @@ h1,h2,h3,h4{font-family:var(--display);color:var(--navy-dark);font-weight:700;le
   transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .35s;
 }
 .service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);background:var(--navy-dark)}
-.service-card:hover h3,.service-card:hover p,.service-card:hover .num{color:#fff}
+.service-card:hover h3,.service-card:hover p{color:#fff}
 .service-card:hover .ic{background:var(--terra)}
 .service-card:hover .ic svg{color:#fff}
-.service-card .num{font-family:var(--serif);font-style:italic;font-weight:700;color:var(--terra-dark);font-size:26px}
 .service-card .ic{width:44px;height:44px;border-radius:12px;background:var(--terra-tint);display:flex;align-items:center;justify-content:center;transition:background .3s}
 .service-card .ic svg{width:22px;height:22px;color:var(--terra-dark);transition:color .3s}
 .service-card h3{font-size:16.5px;transition:color .3s}
 .service-card p{font-size:13px;color:var(--muted);line-height:1.55;transition:color .3s}
+.services-cta{display:flex;justify-content:center;margin-top:36px}
+
+/* =========================================================
+   Ferramentas / softwares
+   ========================================================= */
+.tools{padding:56px 0;background:var(--terra-tint)}
+.tools .section-head{margin-bottom:32px}
+.tools-grid{display:flex;flex-wrap:wrap;gap:12px}
+.tool-chip{
+  background:var(--card);border:1px solid var(--line);border-radius:100px;
+  padding:11px 22px;font-size:14px;font-weight:700;color:var(--navy-dark);
+  box-shadow:0 4px 14px rgba(51,54,58,.05);transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s,color .2s;
+}
+.tool-chip:hover{background:var(--navy-dark);color:#fff;transform:translateY(-3px);box-shadow:var(--shadow)}
 
 /* =========================================================
    Compare (V-Ray x IA slider)
@@ -384,7 +401,7 @@ h1,h2,h3,h4{font-family:var(--display);color:var(--navy-dark);font-weight:700;le
    ========================================================= */
 .cases{padding:70px 0}
 .case{
-  display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;
+  display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;
   padding:56px 0;border-bottom:1px solid var(--line);
 }
 .case:last-child{border-bottom:none}
@@ -394,10 +411,12 @@ h1,h2,h3,h4{font-family:var(--display);color:var(--navy-dark);font-weight:700;le
 .case-media:hover img{transform:scale(1.03)}
 .case-body h3{font-size:clamp(24px,3vw,32px);margin:8px 0 20px}
 .case-body p.desc{color:var(--ink);font-size:15.5px;margin-bottom:22px}
-.case-meta{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px}
-.case-meta div{border-top:1px solid var(--line);padding-top:10px}
+.case-meta{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px 28px;
+  background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
+}
 .case-meta .k{font-size:10.5px;font-weight:800;letter-spacing:.1em;color:var(--terra-dark)}
-.case-meta .v{font-size:14px;font-weight:600;color:var(--navy-dark);margin-top:4px}
+.case-meta .v{font-size:14px;font-weight:600;color:var(--navy-dark);margin-top:5px}
 
 /* =========================================================
    Formação
@@ -520,7 +539,6 @@ h1,h2,h3,h4{font-family:var(--display);color:var(--navy-dark);font-weight:700;le
   .case,.case:nth-child(even) .case-media{grid-template-columns:1fr;order:0}
   .case{gap:26px;padding:40px 0}
   .formation-box{grid-template-columns:1fr;gap:28px;padding:30px 24px}
-  .stats-grid{grid-template-columns:repeat(2,1fr)}
   .how-grid{flex-direction:column}
   .how-arrow{transform:rotate(90deg);padding:2px 0}
   .cmp-grid{grid-template-columns:1fr}

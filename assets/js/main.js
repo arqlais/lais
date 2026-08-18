@@ -56,17 +56,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const suffix = el.dataset.suffix || '';
       const dur = 1400;
       const start = performance.now();
-      const span = el.querySelector('span');
+      el.textContent = '0';
+      const suffixSpan = document.createElement('span');
+      suffixSpan.textContent = suffix;
+      el.appendChild(suffixSpan);
       const tick = (now) => {
         const p = Math.min(1, (now - start) / dur);
         const eased = 1 - Math.pow(1 - p, 3);
         const val = Math.round(target * eased);
         el.firstChild.textContent = val;
-        if (span) span.textContent = suffix;
         if (p < 1) requestAnimationFrame(tick);
       };
-      el.textContent = '0';
-      if (span) el.appendChild(span);
       requestAnimationFrame(tick);
       countObs.unobserve(el);
     });
@@ -96,7 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const totalMatching = Array.from(gItems).filter(item =>
       activeFilter === 'all' || item.dataset.tag === activeFilter).length;
-    moreWrap.classList.toggle('show', isMobileGallery() && !galleryExpanded && totalMatching > MOBILE_LIMIT);
+    moreWrap.classList.toggle('show', isMobileGallery() && totalMatching > MOBILE_LIMIT);
+    if (moreBtn) moreBtn.textContent = galleryExpanded ? 'ver menos fotos' : 'ver mais fotos';
   };
 
   filterBtns.forEach(btn => {
@@ -110,8 +111,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (moreBtn) {
     moreBtn.addEventListener('click', () => {
-      galleryExpanded = true;
+      galleryExpanded = !galleryExpanded;
       applyGalleryVisibility();
+      if (!galleryExpanded) {
+        document.getElementById('gallery-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   }
 
